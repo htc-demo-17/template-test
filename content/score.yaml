@@ -1,0 +1,21 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: ${{ values.name | dump }}
+
+# Define the ports that this service exposes
+service:
+  ports:
+    www:
+      port: 80 # The port that the service will be exposed on
+      targetPort: 5000 # The default port of flask is 5000
+
+# Define the containers that make up this service
+containers:
+  frontend:
+    image: # Set by pipeline
+
+# Define the resources that this service needs
+resources:
+  dns: # We need a DNS record to point to the service 
+    type: dns
